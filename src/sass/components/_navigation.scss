@@ -1,0 +1,157 @@
+// @import "../variables";
+
+.navigation {
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+  border-radius: 50%;
+  background-color: rgb(180, 50, 50);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+
+  .button-background {
+    cursor: pointer;
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+
+    .button {
+      position: fixed;
+      top: 5.5rem;
+      right: 4rem;
+      &,
+      &::before,
+      &::after {
+        width: 3rem;
+        height: 2px;
+        background-color: white;
+        display: inline-block;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+
+      &::before {
+        top: -0.8rem;
+      }
+      &::after {
+        top: 0.8rem;
+      }
+
+      &-close {
+        &::before {
+          width: 2.5rem;
+          top: 0;
+          transform: rotate(135deg);
+        }
+        &::after {
+          width: 2.5rem;
+          top: 0;
+          transform: rotate(-135deg);
+        }
+      }
+
+      &-close.button {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &-open {
+    height: 100vh;
+    width: 100vw;
+    background-color:  rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    border-radius: 0%;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+
+  .menu {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+
+    &-open {
+      visibility: visible;
+      height: 100%;
+      width: 100%;
+      .nav-list {
+        list-style: none;
+        color: white;
+        position: absolute;
+        top: 30%;
+        right: 1rem;
+      }
+
+      .nav-link {
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+        text-align: right;
+        transform: translate(-50%, -50%);
+        transition: all 2s 0.2s;
+
+        li {
+          text-transform: uppercase;
+          margin-bottom: 2rem;
+          font-size: 1.6rem;
+          letter-spacing: 0.4rem;
+          text-align: right;
+        }
+      }
+
+      .nav-link--active > li {
+        width: 18rem;
+        display: block;
+        background-image: linear-gradient(
+          125deg,
+          rgb(180, 50, 50) 0%,
+          rgb(180, 50, 50) 10%,
+          white 10%
+        );
+        transform: scale(1.2) translate(-2rem);
+        color: rgb(180, 50, 50);
+        padding: 0.5rem;
+        border-radius: 3px;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+      }
+
+      &__footer {
+        position: absolute;
+        bottom: 9rem;
+        right: 3rem;
+        a {
+          color: white;
+          font-size: 3rem;
+          margin-right: 2rem;
+        }
+      }
+
+      &__heading {
+        position: absolute;
+        text-align: left;
+        top: 2rem;
+        left: 2rem;
+        text-decoration: none;
+        color: white;
+        font-size: 2rem;
+        // font-family: $font-primary;
+      }
+    }
+  }
+}
