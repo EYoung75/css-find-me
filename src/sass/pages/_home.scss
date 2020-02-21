@@ -9,10 +9,10 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url("../../assets/home.jpg");
+    background-image: url("../../assets/home-1.jpg");
     background-size: cover;
     background-position: center;
-    filter: saturate(120%) blur(3px);
+    filter: brightness(45%) blur(2px) ;
     z-index: 1;
   }
 
@@ -27,42 +27,64 @@
   }
 
   &__content {
+    padding: 5rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
     border-radius: 3px;
     height: 75%;
-    width: 75%;
-    background-color: rgba(255, 255, 255, 0.3);
+    width:75%;
+    // height: 0%;
+    // width: 0%;
+
     z-index: 15;
     cursor: crosshair;
-    transition: all 1.5s;
+    transition: all .5s;
     box-shadow: 0 0rem 0rem rgba(0, 0, 0, 0);
     opacity: 0;
-    background-image: url("../../assets/home.jpg");
+    background-image: url("../../assets/home-1.jpg");
     background-size: 135%;
     background-position: center;
+    filter: saturate(110%);
+    // animation: pulse 7s ease-out 3s infinite;
 
     &:hover {
+      height: 75%;
+      width: 75%;
+      border-radius: 3px;
       opacity: 1;
-      box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.5);
+      // box-shadow: 0 1rem 4rem rgba(225, 225, 225, 0.5);
+      // transform: scale(1.1);
     }
 
-    &__1 {
-        position: relative;
-        top: 3rem;
-        right: 2rem;
-        height: 20%;
-        width: 20%;
-        border-radius: 3px;
-        opacity: 0;
-        transition: all .5s;
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        background-color: rgba(255,255,255, .2);
-        &:hover {
-            opacity: 1;
-        }
+    & > * {
+      height: 10rem;
+      width: 15rem;
+      border-radius: 3px;
+      opacity: 0;
+      transition: all 0.5s;
+      cursor: pointer;
+      // animation: pulse 10s ease 10s infinite;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+        opacity: 1;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+      }
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
+
+  }
+  100% {
+    opacity: 0;
   }
 }
